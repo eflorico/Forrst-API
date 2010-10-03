@@ -6,6 +6,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Forrst
 {
+    /// <summary>
+    /// Represents a Forrst post.
+    /// </summary>
     public class Post : ForrstLazyLoadingObject
     {
         public Post(int id, ForrstClient client)
@@ -97,7 +100,6 @@ namespace Forrst
             get { return this.GetValue<int>("SnapFileSize"); }
             private set { this.SetValue("SnapFileSize", value); }
         }
-
 
         public DateTime SnapUpdatedAt {
             get { return this.GetValue<DateTime>("SnapUpdatedAt"); }
@@ -199,6 +201,7 @@ namespace Forrst
         }
 
         protected override bool TryLoad() {
+            //Loading of single posts is not yet supported by the API
             return false;
         }
     }

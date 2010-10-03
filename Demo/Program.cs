@@ -11,8 +11,8 @@ namespace Demo
         static void Main(string[] args) {
             var forrst = new ForrstClient();
 
-            Console.WriteLine("User #1's first post:");
-            Console.WriteLine(new User(1, forrst).Posts.First().Content);
+            Console.WriteLine("User #1's ID:");
+            Console.WriteLine(new User(0, forrst).Username);
 
             Console.WriteLine();
             Console.WriteLine("Requests done:");

@@ -31,6 +31,7 @@ namespace Forrst
         }
 
         protected override bool TryLoad() {
+            //Loading of single tags is not yet supported by the API
             return false;
         }
     }

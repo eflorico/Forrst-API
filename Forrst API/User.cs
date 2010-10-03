@@ -7,6 +7,9 @@ using System.Net;
 
 namespace Forrst
 {
+    /// <summary>
+    /// Represents a Forrst user.
+    /// </summary>
     public class User : ForrstLazyLoadingObject
     {
         public User(int id, ForrstClient client)
@@ -34,9 +37,9 @@ namespace Forrst
             private set { this.SetValue("Username", value); }
         }
 
-        public ForrstList<Post> Posts {
+        public ForrstLazyLoadingList<Post> Posts {
             get {
-                return new ForrstList<Post>(loadedItems => {
+                return new ForrstLazyLoadingList<Post>(loadedItems => {
                     var parameters = new Dictionary<string, string>();
                     parameters.Add("username", this.Username);
                     if (loadedItems.Count > 0) parameters.Add("since", loadedItems.Last().ID.ToString());
@@ -55,6 +58,7 @@ namespace Forrst
         }
 
         protected override bool TryLoad() {
+            //Supports loading by username or ID
             if (this.IsLoaded("Username") || this.IsLoaded("ID")) {
                 var parameters = new Dictionary<string, string>();
 
@@ -70,7 +74,7 @@ namespace Forrst
                 }
                 catch (WebException ex) {
                     if (ex.Response is HttpWebResponse && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.NotFound)
-                        return false;
+                        throw new UserNotFoundException();
                     else throw ex;
                 }
                 return true;

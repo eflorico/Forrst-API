@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Exceptions.cs" />
     <Compile Include="ForrstLazyLoadingObject.cs" />
-    <Compile Include="ForrstList.cs" />
+    <Compile Include="ForrstLazyLoadingList.cs" />
     <Compile Include="ForrstObject.cs" />
     <Compile Include="ForrstClient.cs" />
     <Compile Include="Post.cs" />

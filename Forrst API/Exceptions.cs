@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Forrst
 {
-    public class CannotLoadException : Exception
-    {
-    }
+    public class CannotLoadException : Exception { }
+    public class UserNotFoundException : Exception { }
 }
