@@ -200,7 +200,7 @@ namespace Forrst
             foreach (var tag in json["tag_objs"]) this.Tags.Add(new Tag(tag, this.Client));
         }
 
-        protected override bool TryLoad() {
+        public override bool TryLoad() {
             //Loading of single posts is not yet supported by the API
             return false;
         }

@@ -49,6 +49,6 @@ namespace Forrst
         /// Tries to load the not yet loaded fields of this object using the present data.
         /// </summary>
         /// <returns>Returns if the present data allow loading.</returns>
-        protected abstract bool TryLoad();
+        public abstract bool TryLoad();
     }
 }

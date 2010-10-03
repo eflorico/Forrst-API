@@ -57,7 +57,7 @@ namespace Forrst
             this.Username = json.Value<string>("username");
         }
 
-        protected override bool TryLoad() {
+        public override bool TryLoad() {
             //Supports loading by username or ID
             if (this.IsLoaded("Username") || this.IsLoaded("ID")) {
                 var parameters = new Dictionary<string, string>();

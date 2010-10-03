@@ -30,7 +30,7 @@ namespace Forrst
             private set { this.SetValue("Uri", value); }
         }
 
-        protected override bool TryLoad() {
+        public override bool TryLoad() {
             //Loading of single tags is not yet supported by the API
             return false;
         }
